@@ -1,0 +1,39 @@
+# Use postgres/example user/password credentials
+version: '3.8'
+
+services:
+  db:
+    image: "${image_name_db}:13"
+    container_name: "${container_pg_name}"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "${postgres_password}"
+      POSTGRES_USER: "${postgres_user}"
+      POSTGRES_DB: "${postgres_db}"
+      PGDATA: "${pgdata}"
+    # stdin_open: true  # docker run -i
+    # tty: true         # docker run -t
+    volumes:
+      - "./${local_pgdata}/:${pgdata}"
+    env_file:
+      - .env
+    ports:
+      - 5050:5432
+
+  adminer:
+    image: "${image_name_admin}:7"
+    container_name: "${container_pgadmin_name}"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${pgadmin_default_email}"
+      PGADMIN_DEFAULT_PASSWORD: "${pgadmin_default_password}"
+    # stdin_open: true  # docker run -i
+    # tty: true         # docker run -t
+    volumes:
+      - "./${local_pgadmin_data}/:${pgdata}"
+    env_file:
+      - .env    
+    ports:
+      - 8080:80
+    depends_on:
+      - db
