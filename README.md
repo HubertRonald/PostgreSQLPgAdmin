@@ -5,7 +5,7 @@
 
 
 # PostgreSQLPgAdmin
-Puedes correr un ambiente local de [postgres](https://hub.docker.com/_/postgres) con [pgadmin](https://hub.docker.com/r/dpage/pgadmin4/)
+Este repositorio permite correr un ambiente local de [Postgres](https://hub.docker.com/_/postgres) con [PgAdmin](https://hub.docker.com/r/dpage/pgadmin4/)
 
 
 # Inicio
