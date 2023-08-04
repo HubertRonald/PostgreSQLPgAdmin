@@ -64,7 +64,12 @@ Este repositorio permite correr un ambiente local de [Postgres](https://hub.dock
     ./stop.sh
     ```
 
+
 > **Nota:** Tener encuenta que el archivo `.env` se sube a este repo a modo de ejemplo, removerlo (o comentarlo) en el .gitignore cuando clones el proyecto para que puedas personalizar tus claves y demás
+
+---
+> ⚠️ **Consideración:** El script `start.sh` elimina los archivos `.gitkeep` en el carpetas `./data/pgdata/` y `./data/pgadmin_data/` para levantar el servicio `db`, caso contratio este no funcionará en un inicio. Estos archivos `.gitkeep` se colocaron en el las carpetas a efecto de que puedan ser incluidas en el repositorio y con ello quede la traza de los volumenes en `docker-compose`.
+---
 
 # Enlaces
 Muestra de bases de datos en Postgres
